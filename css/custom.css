@@ -5,7 +5,8 @@ body {
 	bottom: 0;
 }
 .ccontainer {
-	width: 100%;
+	width: 1050px;
+	margin: 0 auto;
 }
 .list-group-item {
 	background-color: transparent;
@@ -165,7 +166,7 @@ body {
 }
 .replybox {
 	bottom: 0;
-	width: 600px;
+	width: 550px;
 	height: 12%;
 	background-color: #F0F0F0;
 	border-style: solid;
@@ -176,7 +177,7 @@ body {
 }
 .replybox textarea {
 	border-color: #E0E0E0;
-	width: 81%;
+	width: 79%;
 	padding: 10px;
 	font-size: 12px;
 	height: 100%;

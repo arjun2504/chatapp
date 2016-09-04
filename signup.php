@@ -10,7 +10,12 @@
 		$con->query("INSERT INTO users (username, password, email, avatar) VALUES ('$u','$p1','$e','default.png')");
 		session_start();
 		$_SESSION['username'] = $u;
+		
+		$sid = session_id();
+		$con->query("INSERT INTO chat VALUES ('$sid','$data[username]', NOW(), 'online')");
+		
 		header("Location: chat.php");
+
 	}
 	else {
 		header("Location: index.php?err=2");

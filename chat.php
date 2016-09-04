@@ -54,7 +54,7 @@
 	<body>
 		<div class="ccontainer">
 			<div class="row no-gutter">
-			<div class="col-md-4" style="position:fixed; width: 350px; height: 100%">
+			<div class="col-md-4" style="position:fixed; width: 300px; height: 100%">
 				<div class="lefttop">
 					
 					<?php
@@ -254,7 +254,7 @@
 						$data = $dq->fetch_array(MYSQLI_ASSOC);
 					?>
 
-					<div class="col-md-6" style="position:fixed; width: 600px; margin-left: 350px; height: 100%">
+					<div class="col-md-6" style="position:fixed; width: 550px; margin-left: 300px; height: 100%">
 						<div class="chatheader">
 
 							<?php
@@ -332,7 +332,7 @@
 									    });
 									  }
 									  //setInterval(callAjax,100);
-										var s = setInterval(function() { callAjax(); },500);
+										var s = setInterval(function() { callAjax(); },1500);
 								});
 						</script>
 
@@ -380,7 +380,7 @@
 										url: "sendbuzz.php",
 										data: $('#reply').serialize(),
 										success: function(data) {
-											playSound(kind);
+												playSound(kind);
 										}
 									});
 								}
@@ -393,9 +393,11 @@
 											           data: $("#reply").serialize(),
 											           success: function(data)
 											           {
+														if(document.getElementById('replytxt').value != "") {
+															playSound('send');
+														}
 														document.getElementById('replytxt').value ="";
 														$(".chatcont").animate({ scrollTop: $(".chatcont")[0].scrollHeight}, 1000);
-														playSound('send');
 											           }
 											     });
 
@@ -424,7 +426,7 @@
 					</div>
 					<?php } else if(!isset($_GET['usr'])) {
 						?>
-							<div class="col-md-6" style="position:fixed; width: 600px; margin-left: 350px; height: 100%">
+							<div class="col-md-6" style="position:fixed; width: 600px; margin-left: 300px; height: 100%">
 								<div class="whome">
 									<center><span class="glyphicon glyphicon-comment" style="font-size: 200px; margin-top: 20%"></span></center>
 									<br>
@@ -434,7 +436,7 @@
 						<?php
 					}
 					 ?>
-					<div class="col-md-2" style="position:fixed; width: 200px; margin-left: 950px; height: 100%">
+					<div class="col-md-2" style="position:fixed; width: 200px; margin-left: 850px; height: 100%">
 						<div class="rightbar">
 								<br><br><br><br><br><br>
 								

@@ -1,14 +1,15 @@
 <?php
 	session_start();
-	if(isset($_SESSION['username'])) {
+	if(isset($_SESSION['username']) && !empty($_POST['message'])) {
+		require_once('db.php');
 		$from = $_SESSION['username'];
 		$to = $_POST['to'];
 		
 		$gmsg = $_POST['message'];
-		$mmm = mysql_real_escape_string($gmsg);
+		$mmm = mysqli_real_escape_string($con,$gmsg);
 		$msg = strip_tags(nl2br($mmm),'<br><br/>');
 		
-		require_once('db.php');
+		
 		$ccheck = $con->query("SELECT * FROM convo WHERE (usr1 = '$from' AND usr2 = '$to') OR (usr1 = '$to' AND usr2 = '$from')");
 		if($ccheck->num_rows == 0) {
 			$con->query("INSERT INTO convo (usr1, usr2) VALUES ('$from','$to')");
